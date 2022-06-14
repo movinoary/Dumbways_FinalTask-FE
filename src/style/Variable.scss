@@ -1,0 +1,66 @@
+// Basic Color
+$brownLight: #f6e6da;
+$brownTrans: #613d2b40;
+$brown: #dbb699;
+$brownDark: #613d2b;
+$greenLight: #0acf83;
+$green: #3bb54a;
+$greyWhite: #f5f5f5;
+$grey: #e5e5e5;
+$greyLight: #dfdfdf;
+$greyDark: #c4c4c4;
+$white: #ffffff;
+
+// Font Color
+$fontGreen: #469f74;
+$fontWhite: #ffffff;
+$fontRed: #f13f3f;
+$fontOrange: #ff9900;
+$fontBlue: #00d1ff;
+$fontBrown: #613d2b;
+$fontBrownLight: #974a4a;
+$fontBlack: #000000;
+
+// button
+@mixin button(
+  $color,
+  $fontColor,
+  $border,
+  $colorHover,
+  $fontColorHover,
+  $borderHover
+) {
+  width: 100%;
+  padding: 5px 10px;
+  border-radius: 5px;
+  -webkit-transition: all 1s;
+  -moz-transition: all 1s;
+  transition: all 1s;
+  font-size: 1rem;
+  text-transform: capitalize;
+  color: $fontColor;
+  background-color: $color;
+  border: 2px solid $border;
+
+  &:hover {
+    -webkit-transition: all 1s;
+    -moz-transition: all 1s;
+    transition: all 1s;
+    background-color: $colorHover;
+    color: $fontColorHover;
+    border: 2px solid $borderHover;
+  }
+}
+
+// input
+@mixin input() {
+  width: 100%;
+  padding: 10px;
+  background-color: $brownTrans;
+  border: 2px solid $brownDark;
+  margin: 7px 0;
+  font-size: 1.2rem;
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 500;
+  border-radius: 5px;
+}
