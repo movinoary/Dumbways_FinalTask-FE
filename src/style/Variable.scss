@@ -3,16 +3,21 @@ $brownLight: #f6e6da;
 $brownTrans: #613d2b40;
 $brown: #dbb699;
 $brownDark: #613d2b;
-$greenLight: #0acf83;
+$blueGreen: #8ad0d0;
+$greenBlue: #2fe5e5;
+$greenLight: #00ff1e;
 $green: #3bb54a;
 $greyWhite: #f5f5f5;
 $grey: #e5e5e5;
 $greyLight: #dfdfdf;
 $greyDark: #c4c4c4;
+$red: #c40f0f;
+$redFull: #ff0000;
 $white: #ffffff;
 
 // Font Color
 $fontGreen: #469f74;
+$fontGrey: #717171;
 $fontWhite: #ffffff;
 $fontRed: #f13f3f;
 $fontOrange: #ff9900;
@@ -32,10 +37,10 @@ $fontBlack: #000000;
 ) {
   width: 100%;
   padding: 5px 10px;
-  border-radius: 5px;
-  -webkit-transition: all 1s;
-  -moz-transition: all 1s;
-  transition: all 1s;
+  border-radius: 4px;
+  -webkit-transition: all 0.5s ease-out;
+  -moz-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out;
   font-size: 1rem;
   text-transform: capitalize;
   color: $fontColor;
@@ -43,9 +48,9 @@ $fontBlack: #000000;
   border: 2px solid $border;
 
   &:hover {
-    -webkit-transition: all 1s;
-    -moz-transition: all 1s;
-    transition: all 1s;
+    -webkit-transition: all 0.5s ease-in;
+    -moz-transition: all 0.5s ease-in;
+    transition: all 0.5s ease-in;
     background-color: $colorHover;
     color: $fontColorHover;
     border: 2px solid $borderHover;

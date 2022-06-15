@@ -8,6 +8,8 @@ import svgLayer from "./svg/layer.png";
 import svgProfile from "./svg/profile.png";
 import svgQr from "./svg/qr.png";
 import svgSend from "./svg/send.png";
+import svgBin from "./svg/bin.png";
+import svgFile from "./svg/file.png";
 
 import imgCoffe from "./images/Coffe.jpg";
 import imgProductOne from "./images/Rectangle.jpg";
@@ -23,6 +25,8 @@ export {
   svgProfile,
   svgQr,
   svgSend,
+  svgBin,
+  svgFile,
   imgCoffe,
   imgProductOne,
 };

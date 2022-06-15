@@ -10,11 +10,133 @@
   align-items: center;
 
   .homeSecProduct {
+    width: 100%;
     margin-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1rem;
+  }
+}
+
+.complainSec {
+  width: 100%;
+  max-height: 90vh;
+  padding: 3% 7%;
+  background-color: $white;
+  display: flex;
+  flex-direction: row;
+
+  .complainCard {
+    width: 25vw;
+    height: 100%;
+    max-height: 78vh;
+    margin-right: 10px;
+    overflow: hidden;
+    overflow: auto;
+    background-color: $grey;
+    padding: 10px;
+    border-radius: 10px;
+  }
+
+  .complainChat {
+    width: 75vw;
+    border-radius: 10px;
+    margin-left: 10px;
+    overflow: hidden;
+    background-color: $grey;
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
+    flex-direction: column;
+
+    .complainChatProfile {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      background-color: $greyDark;
+      padding: 10px;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+      z-index: 5;
+
+      img {
+        margin: 0 20px;
+        width: 50px;
+        height: 50px;
+        border-radius: 100%;
+      }
+      P {
+        color: $fontBlack;
+        font-size: 1.2rem;
+        text-transform: capitalize;
+      }
+    }
+
+    .complainChatBubble {
+      width: 100%;
+      height: 60vh;
+      padding: 10px;
+      overflow: auto;
+
+      .bubbleLeft {
+        margin-left: 10px;
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+      }
+
+      .bubbleRight {
+        margin-right: 10px;
+        display: flex;
+        align-items: center;
+        flex-direction: row-reverse;
+      }
+
+      p {
+        margin-bottom: 5px;
+        width: 300px;
+        padding: 15px;
+        font-size: 1rem;
+        border-radius: 5px;
+        text-align: justify;
+        background-color: $white;
+      }
+    }
+
+    form {
+      width: 100%;
+      padding: 15px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+
+      input {
+        background-color: $greyDark;
+        width: 100%;
+        margin-right: 10px;
+        border: none;
+        padding: 10px;
+        border-radius: 5px;
+        font-size: 1rem;
+      }
+
+      button {
+        border: none;
+        padding: 7px 15px;
+        border-radius: 3px;
+        background-color: $blueGreen;
+        transition: 0.5s ease;
+
+        img {
+          width: 18px;
+          height: 18px;
+        }
+
+        &:hover {
+          background-color: $greenBlue;
+          transition: 0.5s ease;
+        }
+      }
+    }
   }
 }
 
@@ -82,8 +204,8 @@
   }
 }
 
-.profile {
-  background-color: aqua;
+.profileSec {
+  background-color: $white;
   width: 100%;
   min-height: 90vh;
   padding: 7% 10%;
@@ -91,7 +213,7 @@
   flex-direction: row;
   justify-content: space-between;
 
-  .title {
+  .profileTitle {
     font-size: 2rem;
     text-transform: capitalize;
     color: $fontBrown;
@@ -125,5 +247,282 @@
 
   .profileTransaction {
     width: 500px;
+  }
+}
+
+.cartSec {
+  background-color: $white;
+  width: 100%;
+  min-height: 90vh;
+  padding: 7% 10%;
+
+  .cartRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .cartDesc {
+      width: 65%;
+    }
+
+    .cartTrans {
+      padding: 20px 5px;
+      width: 30%;
+      display: flex;
+      flex-direction: column;
+
+      div {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+
+      div:nth-child(1) {
+        padding-top: 15px;
+        margin-bottom: 10px;
+        border-top: 1px solid $brownDark;
+        color: $fontBrownLight;
+      }
+
+      div:nth-child(2) {
+        padding-bottom: 15px;
+        margin-top: 10px;
+        border-bottom: 1px solid $brownDark;
+        color: $fontBrownLight;
+      }
+
+      div:nth-child(3) {
+        margin-top: 20px;
+        color: $fontBrown;
+      }
+    }
+  }
+}
+
+.adminTab {
+  min-height: 90vh;
+  width: 100%;
+  padding: 3% 10%;
+  background-color: $white;
+
+  h1 {
+    color: $brownDark;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    margin-left: -20px;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 0.9rem;
+    text-align: left;
+
+    thead {
+      background-color: $grey;
+
+      th {
+        border: 1px solid $greyDark;
+        padding: 10px;
+      }
+
+      th:nth-child(1) {
+        width: 4%;
+      }
+      th:nth-child(2) {
+        width: 16%;
+      }
+      th:nth-child(3) {
+        width: 20%;
+      }
+      th:nth-child(4) {
+        width: 10%;
+      }
+      th:nth-child(5) {
+        width: 20%;
+      }
+      th:nth-child(6) {
+        width: 20%;
+      }
+      th:nth-child(7) {
+        width: 10%;
+      }
+    }
+
+    tbody {
+      td {
+        border: 1px solid $greyDark;
+        padding: 10px;
+      }
+    }
+  }
+}
+
+.adminProductTab {
+  min-height: 90vh;
+  width: 100%;
+  padding: 3% 10%;
+  background-color: $white;
+
+  h1 {
+    color: $brownDark;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    margin-left: -20px;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 0.9rem;
+    text-align: left;
+
+    thead {
+      background-color: $grey;
+
+      th {
+        border: 1px solid $greyDark;
+        padding: 10px;
+      }
+
+      th:nth-child(1) {
+        width: 4%;
+      }
+      th:nth-child(2) {
+        width: 15%;
+      }
+      th:nth-child(3) {
+        width: 50%;
+      }
+      th:nth-child(4) {
+        width: 7%;
+      }
+      th:nth-child(5) {
+        width: 8%;
+      }
+      th:nth-child(6) {
+        width: 6%;
+      }
+      th:nth-child(7) {
+        width: 10%;
+      }
+    }
+
+    tbody {
+      td {
+        border: 1px solid $greyDark;
+        padding: 10px;
+
+        img {
+          width: 60px;
+          height: 70px;
+        }
+
+        button:nth-child(1) {
+          margin-bottom: 5px;
+          @include button(
+            $green,
+            $fontWhite,
+            $green,
+            $greenLight,
+            $fontWhite,
+            $greenLight
+          );
+        }
+        button:nth-child(2) {
+          @include button(
+            $red,
+            $fontWhite,
+            $red,
+            $redFull,
+            $fontWhite,
+            $redFull
+          );
+        }
+      }
+    }
+  }
+}
+
+.adminProductSec {
+  min-height: 90vh;
+  width: 100%;
+  padding: 3% 10%;
+  background-color: $white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  form {
+    width: 650px;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+
+    h1 {
+      color: $brownDark;
+      font-size: 2rem;
+      margin-bottom: 20px;
+      margin-left: -20px;
+    }
+
+    input,
+    textarea,
+    label {
+      color: $fontBrown;
+      @include input();
+    }
+    input::placeholder,
+    textarea::placeholder {
+      color: $fontBrownLight;
+    }
+
+    label {
+      width: 210px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      color: $fontBrownLight;
+
+      img {
+        width: 20px;
+        height: 20px;
+      }
+    }
+
+    input:nth-child(7) {
+      visibility: hidden;
+      width: 0;
+      height: 0;
+    }
+
+    div {
+      margin: 0;
+      padding: 0 100px 0 100px;
+    }
+
+    button {
+      @include button(
+        $brownDark,
+        $fontWhite,
+        $brownDark,
+        $brown,
+        $fontBrown,
+        $brown
+      );
+    }
+  }
+
+  div {
+    width: 500px;
+    height: 530px;
+    padding: 50px;
+    margin-top: 40px;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
   }
 }

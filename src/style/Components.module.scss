@@ -20,6 +20,7 @@
     .navLeft {
       width: 100px;
       margin-right: 10px;
+
       button {
         @include button(
           $greyWhite,
@@ -34,6 +35,7 @@
 
     .navRight {
       width: 100px;
+
       button {
         @include button(
           $brownDark,
@@ -46,6 +48,103 @@
       }
     }
   }
+
+  .navRight {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100px;
+
+    .navLink {
+      text-decoration: none;
+
+      .navDesc {
+        text-align: center;
+        background-color: $redFull;
+        color: $fontWhite;
+        width: 17px;
+        height: 17px;
+        font-size: 0.7rem;
+        border-radius: 100%;
+        padding: 3.5px;
+        margin-top: 7px;
+        margin-left: 20px;
+        position: absolute;
+      }
+      .imgCart {
+        margin-top: 3px;
+        width: 35px;
+        height: 35px;
+      }
+    }
+
+    .navProfile {
+      width: 45px;
+      height: 45px;
+      border-radius: 100%;
+      cursor: pointer;
+
+      .imgProfile {
+        width: 45px;
+        height: 45px;
+        border-radius: 100%;
+      }
+
+      .imgProfileAdmin {
+        width: 45px;
+        height: 45px;
+        border-radius: 100%;
+        margin-left: 55px;
+      }
+
+      .navDropdown {
+        display: none;
+        background-color: $white;
+        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.25);
+        border-radius: 7px;
+        overflow: hidden;
+        width: 150px;
+        position: absolute;
+        top: 55px;
+        right: 90px;
+
+        .dropdownLink {
+          text-decoration: none;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          padding: 15px;
+          transition: 0.5s ease-out;
+
+          img {
+            margin-right: 10px;
+            width: 20px;
+            height: 20px;
+          }
+
+          p {
+            color: $fontBlack;
+            font-size: 1rem;
+            text-transform: capitalize;
+          }
+
+          &:hover {
+            background-color: $brownLight;
+            transition: 0.5s ease-in;
+          }
+        }
+        .dropdownLink:nth-child(2) {
+          border-top: 2px solid $grey;
+          border-bottom: 2px solid $grey;
+        }
+      }
+
+      &:hover .navDropdown {
+        display: block;
+      }
+    }
+  }
 }
 
 .header {
@@ -55,7 +154,7 @@
   .headerRow {
     width: 90%;
     height: 500px;
-    padding: 50px;
+    padding: 30px;
     background-color: $brown;
     display: flex;
     flex-direction: row;
@@ -65,6 +164,9 @@
     .headerTitle {
       display: flex;
       flex-direction: column;
+      margin-left: 20px;
+      transition: all 1.5s;
+
       h4 {
         margin: 20px 0;
         font-size: 1.5rem;
@@ -73,6 +175,10 @@
         width: 420px;
         font-size: 1.15rem;
         line-height: 25px;
+      }
+      &:hover {
+        margin-left: -5px;
+        transition: all 1.5s;
       }
     }
     .headerImg {
@@ -84,11 +190,88 @@
         height: 275px;
         z-index: 2;
         margin-right: -150px;
+        transition: all 1s;
+        &:hover {
+          margin-left: -50px;
+          transition: all 1.5s;
+        }
       }
       img:nth-child(2) {
         z-index: 1;
         margin-top: -30px;
         margin-left: -100px;
+        transition: all 1s;
+
+        &:hover {
+          margin-right: -20px;
+          transition: all 1.5s;
+        }
+      }
+    }
+  }
+}
+
+.cardCart {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 10px 3px;
+  width: 100%;
+  border-top: 1px solid $brownDark;
+  border-bottom: 1px solid $brownDark;
+
+  img:nth-child(1) {
+    width: 80px;
+    height: 80px;
+  }
+
+  .cartDesc {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+
+    h1 {
+      font-size: 1rem;
+      margin-bottom: 25px;
+      color: $fontBrown;
+    }
+
+    .cartButton {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      h4 {
+        width: 30px;
+        font-size: 1.2rem;
+        margin: 0 5px;
+        padding: 3px;
+        border-radius: 3px;
+        text-align: center;
+        color: $fontBrown;
+        background-color: $brownLight;
+      }
+
+      button {
+        width: 30px;
+        height: 30px;
+        font-size: 1.2rem;
+        background-color: transparent;
+        color: $fontBrown;
+        border: none;
+      }
+    }
+
+    .cartTotal {
+      p {
+        font-size: 1rem;
+        margin-bottom: 20px;
+        color: $fontBrownLight;
+      }
+      img {
+        margin-left: 70%;
       }
     }
   }
@@ -98,8 +281,10 @@
   background-color: $brownLight;
   width: 250px;
   min-height: 410px;
-  margin: 17px;
   text-decoration: none;
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  transition: all 1s ease;
 
   img {
     width: 250px;
@@ -118,6 +303,13 @@
       color: $fontBrownLight;
     }
   }
+
+  &:hover {
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    transition: all 1s ease;
+    background-color: $brownTrans;
+  }
 }
 
 .cardTransaction {
@@ -125,6 +317,7 @@
   width: 100%;
   height: 150px;
   padding: 10px;
+  border-radius: 5px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -132,12 +325,12 @@
   .imgProduct {
     width: 90px;
     height: 120px;
+    border-radius: 3px;
   }
 
   .cardTransactionDesc {
     padding: 10px;
     width: 250px;
-    background-color: blue;
 
     h1 {
       font-size: 1.2rem;
@@ -158,7 +351,6 @@
 
   .cardTransactionLogo {
     width: 150px;
-    background-color: aqua;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -171,7 +363,41 @@
     .imgQr {
       width: 50px;
       height: 50px;
+      margin: 15px 0;
     }
+    h3 {
+      text-align: center;
+      border-radius: 5px;
+      width: 100%;
+      padding: 3px 10px;
+      background-color: $fontOrange;
+    }
+  }
+}
+
+.cardUser {
+  width: 100%;
+  padding: 15px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-bottom: 1px solid $greyDark;
+
+  img {
+    width: 45px;
+    height: 45px;
+    border-radius: 100%;
+  }
+
+  p {
+    color: $fontBlack;
+    font-size: 1rem;
+    margin-left: 15px;
+    text-transform: capitalize;
+  }
+
+  &:hover {
+    background-color: $greyLight;
   }
 }
 
@@ -190,6 +416,7 @@
     width: 420px;
     min-height: 390px;
     padding: 50px;
+    border-radius: 5px;
 
     .modalRowTitle {
       display: flex;
