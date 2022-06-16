@@ -46,7 +46,7 @@ const NavUser = () => {
   return (
     <>
       <nav className={cssModule.Components.nav}>
-        <Link to="/">
+        <Link to="/customer">
           <img src={Assets.svgSlogo} alt="logo" />
         </Link>
         <div className={cssModule.Components.navRight}>
@@ -65,11 +65,11 @@ const NavUser = () => {
               alt="profile"
             />
             <div className={cssModule.Components.navDropdown}>
-              <Link to="/" className={cssModule.Components.dropdownLink}>
+              <Link to="profile" className={cssModule.Components.dropdownLink}>
                 <img src={Assets.svgProfile} alt="svg" />
                 <p>profile</p>
               </Link>
-              <Link to="/" className={cssModule.Components.dropdownLink}>
+              <Link to="complain" className={cssModule.Components.dropdownLink}>
                 <img src={Assets.svgChat} alt="svg" />
                 <p>complain</p>
               </Link>
@@ -89,7 +89,7 @@ const NavAdmin = () => {
   return (
     <>
       <nav className={cssModule.Components.nav}>
-        <Link to="/">
+        <Link to="/admin">
           <img src={Assets.svgSlogo} alt="logo" />
         </Link>
         <div className={cssModule.Components.navRight}>
@@ -100,11 +100,14 @@ const NavAdmin = () => {
               alt="profile"
             />
             <div className={cssModule.Components.navDropdown}>
-              <Link to="/" className={cssModule.Components.dropdownLink}>
+              <Link
+                to="list-product"
+                className={cssModule.Components.dropdownLink}
+              >
                 <img src={Assets.svgCoffe} alt="svg" />
                 <p>product</p>
               </Link>
-              <Link to="/" className={cssModule.Components.dropdownLink}>
+              <Link to="complain" className={cssModule.Components.dropdownLink}>
                 <img src={Assets.svgChat} alt="svg" />
                 <p>complain</p>
               </Link>

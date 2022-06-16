@@ -3,9 +3,10 @@ import { Link } from "react-router-dom";
 import * as cssModule from "../../style/index";
 import * as Assets from "../../assets/index";
 
-const CardProduct = () => {
+const CardProduct = props => {
+  const { path } = props;
   return (
-    <Link className={cssModule.Components.cardProduct} to="/product">
+    <Link className={cssModule.Components.cardProduct} to={`/customer/${path}`}>
       <img src={Assets.imgProductOne} alt="product" />
       <div className={cssModule.Components.cardProductDesc}>
         <h1>RWANDA Beans</h1>

@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import * as cssModule from "../../style/index";
 
-const ModalRegister = ({ showModal, setShowModal }) => {
+const ModalRegister = ({ showModal, setShowModalLogin, setShowModal }) => {
   const modalRef = useRef();
 
   const closeModal = e => {
@@ -29,7 +29,8 @@ const ModalRegister = ({ showModal, setShowModal }) => {
               <button>Login</button>
             </div>
             <p>
-              Don't have an account ? Klik <span>Here</span>
+              Don't have an account ? Klik
+              <button onClick={setShowModalLogin}>Here</button>
             </p>
           </div>
         </div>

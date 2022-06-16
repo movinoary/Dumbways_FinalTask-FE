@@ -12,9 +12,27 @@
   .homeSecProduct {
     width: 100%;
     margin-top: 2rem;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 1rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    button {
+      width: 250px;
+      min-height: 410px;
+      border: none;
+      text-align: left;
+      background-color: $brownLight;
+      -webkit-transition: all 1s ease;
+      -moz-transition: all 1s ease;
+      transition: all 1s ease;
+
+      &:hover {
+        -webkit-transition: all 1s ease;
+        -moz-transition: all 1s ease;
+        transition: all 1s ease;
+        background-color: $brownTrans;
+      }
+    }
   }
 }
 
@@ -54,7 +72,7 @@
       background-color: $greyDark;
       padding: 10px;
       box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-      z-index: 5;
+      z-index: 2;
 
       img {
         margin: 0 20px;
@@ -364,11 +382,27 @@
   padding: 3% 10%;
   background-color: $white;
 
-  h1 {
-    color: $brownDark;
-    font-size: 2rem;
-    margin-bottom: 20px;
-    margin-left: -20px;
+  .adminProductAdd {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 -20px 30px -20px;
+
+    h1 {
+      color: $brownDark;
+      font-size: 2rem;
+    }
+    button {
+      @include button(
+        $blueGreen,
+        $fontWhite,
+        $greenBlue,
+        $greenBlue,
+        $fontWhite,
+        $blueGreen
+      );
+    }
   }
 
   table {

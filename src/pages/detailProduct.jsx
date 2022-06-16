@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import * as Assets from "../assets/index";
 import * as cssModule from "../style/index";
 
@@ -19,7 +20,9 @@ const DetailProduct = () => {
           asal kopi” pun semakin kuat.
         </p>
         <h2>Rp.123.000</h2>
-        <button>add cart</button>
+        <Link to="/customer/cart">
+          <button>add cart</button>
+        </Link>
       </div>
     </section>
   );

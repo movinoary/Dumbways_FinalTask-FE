@@ -1,11 +1,27 @@
 import React from "react";
 import * as cssModule from "../style/index";
 import * as Assets from "../assets/index";
+import { useNavigate } from "react-router-dom";
 
 const ListProduct = () => {
+  const navigate = useNavigate();
+
+  function addProduct() {
+    navigate("/admin/add-product");
+  }
+
+  function editProduct() {
+    navigate("/admin/edit-product");
+  }
+
   return (
     <section className={cssModule.Page.adminProductTab}>
-      <h1>List Product</h1>
+      <div className={cssModule.Page.adminProductAdd}>
+        <h1>List Product</h1>
+        <div>
+          <button onClick={addProduct}>add product</button>
+        </div>
+      </div>
       <div>
         <table>
           <thead>
@@ -38,7 +54,7 @@ const ListProduct = () => {
               <td>Rp.123.000</td>
               <td>200</td>
               <td>
-                <button>edit</button>
+                <button onClick={editProduct}>edit</button>
                 <button>delete</button>
               </td>
             </tr>

@@ -1,4 +1,5 @@
 import Home from "./home";
+import HomeCustomer from "./homeCustomer";
 import Profile from "./profile";
 import DetailProduct from "./detailProduct";
 import Cart from "./cart";
@@ -11,6 +12,7 @@ import ComplainAdmin from "./complainAdmin";
 
 export {
   Home,
+  HomeCustomer,
   Profile,
   DetailProduct,
   Cart,

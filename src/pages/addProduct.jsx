@@ -11,7 +11,7 @@ const AddProduct = () => {
         <textarea rows="5" placeholder="Description Product"></textarea>
         <input type="text" placeholder="Price" />
         <input type="text" placeholder="Stock" />
-        <label for="image">
+        <label htmlFor="image">
           Photo Product <img src={Assets.svgFile} alt="file" />
         </label>
         <input type="file" id="image" placeholder="Image" />

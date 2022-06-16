@@ -116,6 +116,9 @@
           align-items: center;
           padding: 15px;
           transition: 0.5s ease-out;
+          border: none;
+          width: 100%;
+          background-color: $white;
 
           img {
             margin-right: 10px;
@@ -278,10 +281,11 @@
 }
 
 .cardProduct {
-  background-color: $brownLight;
   width: 250px;
   min-height: 410px;
+  margin: 0.5rem;
   text-decoration: none;
+  background-color: $brownLight;
   -webkit-transition: all 1s ease;
   -moz-transition: all 1s ease;
   transition: all 1s ease;
@@ -465,8 +469,10 @@
     p {
       font-size: 1rem;
       color: $brownDark;
-      span {
-        font-weight: 700;
+      button {
+        background-color: transparent;
+        border: none;
+        margin-left: 5px;
       }
     }
   }
