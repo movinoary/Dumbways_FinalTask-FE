@@ -1,8 +1,9 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import * as Assets from "../assets/index";
 import * as cssModule from "../style/index";
 import * as Components from "../components/index";
+import * as Configs from "../config/index";
 
 const Nav = () => {
   const [showModalLogin, setShowModalLogin] = useState(false);
@@ -20,10 +21,7 @@ const Nav = () => {
       <Components.ModalLogin
         showModal={showModalLogin}
         setShowModal={setShowModalLogin}
-      />
-      <Components.ModalRegister
-        showModal={showModalRegister}
-        setShowModal={setShowModalRegister}
+        showModalRegister={showModalRegister}
       />
       <nav className={cssModule.Components.nav}>
         <Link to="/">
@@ -43,6 +41,17 @@ const Nav = () => {
 };
 
 const NavUser = () => {
+  const [state, dispatch] = useContext(Configs.UserContext);
+  const navigate = useNavigate();
+
+  const logout = () => {
+    console.log(state);
+    dispatch({
+      type: "LOGOUT",
+    });
+    navigate("/");
+  };
+
   return (
     <>
       <nav className={cssModule.Components.nav}>
@@ -73,10 +82,13 @@ const NavUser = () => {
                 <img src={Assets.svgChat} alt="svg" />
                 <p>complain</p>
               </Link>
-              <Link to="/" className={cssModule.Components.dropdownLink}>
+              <button
+                className={cssModule.Components.dropdownLink}
+                onClick={logout}
+              >
                 <img src={Assets.svgExit} alt="svg" />
                 <p>logout</p>
-              </Link>
+              </button>
             </div>
           </div>
         </div>
@@ -86,6 +98,17 @@ const NavUser = () => {
 };
 
 const NavAdmin = () => {
+  const [state, dispatch] = useContext(Configs.UserContext);
+  const navigate = useNavigate();
+
+  const logout = () => {
+    console.log(state);
+    dispatch({
+      type: "LOGOUT",
+    });
+    navigate("/");
+  };
+
   return (
     <>
       <nav className={cssModule.Components.nav}>
@@ -111,10 +134,13 @@ const NavAdmin = () => {
                 <img src={Assets.svgChat} alt="svg" />
                 <p>complain</p>
               </Link>
-              <Link to="/" className={cssModule.Components.dropdownLink}>
+              <button
+                className={cssModule.Components.dropdownLink}
+                onClick={logout}
+              >
                 <img src={Assets.svgExit} alt="svg" />
                 <p>logout</p>
-              </Link>
+              </button>
             </div>
           </div>
         </div>

@@ -1,17 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import * as cssModule from "../../style/index";
-import * as Assets from "../../assets/index";
 
 const CardProduct = props => {
-  const { path } = props;
+  const { path, title, img, price, stock } = props;
   return (
-    <Link className={cssModule.Components.cardProduct} to={`/customer/${path}`}>
-      <img src={Assets.imgProductOne} alt="product" />
+    <Link
+      className={cssModule.Components.cardProduct}
+      to={`/customer/product/${path}`}
+    >
+      <img src={img} alt="product" />
       <div className={cssModule.Components.cardProductDesc}>
-        <h1>RWANDA Beans</h1>
-        <p>Rp.299.000</p>
-        <p>Stock: 200</p>
+        <h1>{title}</h1>
+        <p>Rp.{price}</p>
+        <p>Stock: {stock}</p>
       </div>
     </Link>
   );

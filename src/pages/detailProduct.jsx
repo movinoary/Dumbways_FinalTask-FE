@@ -1,25 +1,31 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import * as Assets from "../assets/index";
+import { Link, useParams } from "react-router-dom";
 import * as cssModule from "../style/index";
+import * as Configs from "../config/index";
+import { useQuery } from "react-query";
 
 const DetailProduct = () => {
+  let { id } = useParams();
+
+  let { data: products } = useQuery("productCache", async () => {
+    const config = {
+      method: "GET",
+      headers: {
+        Authorization: "Basic " + localStorage.token,
+      },
+    };
+    const response = await Configs.API.get("/product/" + id, config);
+    console.log(response.data.data.data);
+    return response.data.data.data;
+  });
   return (
     <section className={cssModule.Page.detailProductSec}>
-      <img src={Assets.imgProductOne} alt="product" />
+      <img src={products?.image} alt="product" />
       <div className={cssModule.Page.detailProductDesc}>
-        <h1>RWANDA Beans</h1>
-        <h4>Stock : 200</h4>
-        <p>
-          Hampir semua referensi sepakat mengatakan bahwa kopi pertama kali
-          ditemukan di Ethiopia, meskipun ada juga beberapa protes yang
-          menyatakan bahwa Coffea arabica sebenarnya muncul pertama kali di
-          bagian selatan Sudan. Karena para gembala Ethiopia adalah manusia
-          pertama yang mengonsumsi kopi—walau saat itu mereka baru mengonsumsi
-          buah/cherry-nya saja, maka gagasan tentang “Ethiopia sebagai tempat
-          asal kopi” pun semakin kuat.
-        </p>
-        <h2>Rp.123.000</h2>
+        <h1>{products?.title}</h1>
+        <h4>Stock : {products?.qty}</h4>
+        <p>{products?.description}</p>
+        <h2>Rp.{products?.price}</h2>
         <Link to="/customer/cart">
           <button>add cart</button>
         </Link>

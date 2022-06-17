@@ -1,12 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import * as Components from "../components/index";
 import * as Assets from "../assets/index";
 import * as cssModule from "../style/index";
+import * as Configs from "../config/index";
+import { useQuery } from "react-query";
 
 const Home = () => {
   const [showModalLogin, setShowModalLogin] = useState(false);
   const [showModalRegister, setShowModalRegister] = useState(false);
+  let api = Configs.API;
 
   const LoginModal = () => {
     setShowModalLogin(prev => !prev);
@@ -14,6 +17,22 @@ const Home = () => {
   const RegisterModal = () => {
     setShowModalRegister(prev => !prev);
   };
+
+  let { data: products, refetch } = useQuery("productsCache", async () => {
+    const config = {
+      method: "GET",
+      headers: {
+        Authorization: "Basic " + localStorage.token,
+      },
+    };
+    const response = await api.get("/product", config);
+    console.log(response.data.data);
+    return response.data.data;
+  });
+
+  useEffect(() => {
+    refetch();
+  }, []);
 
   return (
     <>
@@ -40,72 +59,20 @@ const Home = () => {
       <section className={cssModule.Page.homeSec}>
         <Components.Header />
         <div className={cssModule.Page.homeSecProduct}>
-          <button
-            className={cssModule.Components.cardProduct}
-            onClick={LoginModal}
-          >
-            <img src={Assets.imgProductOne} alt="product" />
-            <div className={cssModule.Components.cardProductDesc}>
-              <h1>RWANDA Beans</h1>
-              <p>Rp.299.000</p>
-              <p>Stock: 200</p>
-            </div>
-          </button>
-          <button
-            className={cssModule.Components.cardProduct}
-            onClick={LoginModal}
-          >
-            <img src={Assets.imgProductOne} alt="product" />
-            <div className={cssModule.Components.cardProductDesc}>
-              <h1>RWANDA Beans</h1>
-              <p>Rp.299.000</p>
-              <p>Stock: 200</p>
-            </div>
-          </button>
-          <button
-            className={cssModule.Components.cardProduct}
-            onClick={LoginModal}
-          >
-            <img src={Assets.imgProductOne} alt="product" />
-            <div className={cssModule.Components.cardProductDesc}>
-              <h1>RWANDA Beans</h1>
-              <p>Rp.299.000</p>
-              <p>Stock: 200</p>
-            </div>
-          </button>
-          <button
-            className={cssModule.Components.cardProduct}
-            onClick={LoginModal}
-          >
-            <img src={Assets.imgProductOne} alt="product" />
-            <div className={cssModule.Components.cardProductDesc}>
-              <h1>RWANDA Beans</h1>
-              <p>Rp.299.000</p>
-              <p>Stock: 200</p>
-            </div>
-          </button>
-          <button
-            className={cssModule.Components.cardProduct}
-            onClick={LoginModal}
-          >
-            <img src={Assets.imgProductOne} alt="product" />
-            <div className={cssModule.Components.cardProductDesc}>
-              <h1>RWANDA Beans</h1>
-              <p>Rp.299.000</p>
-              <p>Stock: 200</p>
-            </div>
-          </button>
-          <button
-            className={cssModule.Components.cardProduct}
-            onClick={LoginModal}
-          >
-            <img src={Assets.imgProductOne} alt="product" />
-            <div className={cssModule.Components.cardProductDesc}>
-              <h1>RWANDA Beans</h1>
-              <p>Rp.299.000</p>
-              <p>Stock: 200</p>
-            </div>
-          </button>
+          {products?.map((item, index) => (
+            <button
+              className={cssModule.Components.cardProduct}
+              onClick={LoginModal}
+              key={item.id}
+            >
+              <img src={item.image} alt="product" />
+              <div className={cssModule.Components.cardProductDesc}>
+                <h1>{item.name}</h1>
+                <p>Rp.{item.price}</p>
+                <p>Stock: {item.qty}</p>
+              </div>
+            </button>
+          ))}
         </div>
       </section>
     </>
