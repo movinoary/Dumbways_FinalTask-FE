@@ -6,6 +6,7 @@ import CardTransaction from "./card/transaction";
 import CardUser from "./card/user";
 import ModalLogin from "./modal/login";
 import ModalRegister from "./modal/register";
+import Chats from "./chats";
 
 export {
   Nav,
@@ -18,4 +19,5 @@ export {
   CardUser,
   ModalLogin,
   ModalRegister,
+  Chats,
 };

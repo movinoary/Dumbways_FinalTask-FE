@@ -4,6 +4,7 @@ import * as Assets from "../assets/index";
 import * as cssModule from "../style/index";
 import * as Components from "../components/index";
 import * as Configs from "../config/index";
+import { useQuery } from "react-query";
 
 const Nav = () => {
   const [showModalLogin, setShowModalLogin] = useState(false);
@@ -44,6 +45,17 @@ const NavUser = () => {
   const [state, dispatch] = useContext(Configs.UserContext);
   const navigate = useNavigate();
 
+  let { data: profile } = useQuery("profileCache", async () => {
+    const config = {
+      method: "GET",
+      headers: {
+        Authorization: "Basic " + localStorage.token,
+      },
+    };
+    const response = await Configs.API.get("/profile", config);
+    return response.data.data;
+  });
+
   const logout = () => {
     console.log(state);
     dispatch({
@@ -59,7 +71,7 @@ const NavUser = () => {
           <img src={Assets.svgSlogo} alt="logo" />
         </Link>
         <div className={cssModule.Components.navRight}>
-          <Link to="/cart" className={cssModule.Components.navLink}>
+          <Link to="cart" className={cssModule.Components.navLink}>
             <p className={cssModule.Components.navDesc}>10</p>
             <img
               className={cssModule.Components.imgCart}
@@ -70,7 +82,7 @@ const NavUser = () => {
           <div className={cssModule.Components.navProfile}>
             <img
               className={cssModule.Components.imgProfile}
-              src="https://i.pinimg.com/564x/23/6a/cb/236acb35ba948106b665f8bf0854fd21.jpg"
+              src={profile?.image || Assets.imgBlankProfile}
               alt="profile"
             />
             <div className={cssModule.Components.navDropdown}>
@@ -101,6 +113,17 @@ const NavAdmin = () => {
   const [state, dispatch] = useContext(Configs.UserContext);
   const navigate = useNavigate();
 
+  let { data: profile } = useQuery("profileCache", async () => {
+    const config = {
+      method: "GET",
+      headers: {
+        Authorization: "Basic " + localStorage.token,
+      },
+    };
+    const response = await Configs.API.get("/profile", config);
+    return response.data.data;
+  });
+
   const logout = () => {
     console.log(state);
     dispatch({
@@ -119,7 +142,7 @@ const NavAdmin = () => {
           <div className={cssModule.Components.navProfile}>
             <img
               className={cssModule.Components.imgProfileAdmin}
-              src="https://i.pinimg.com/564x/23/6a/cb/236acb35ba948106b665f8bf0854fd21.jpg"
+              src={profile?.image || Assets.imgBlankProfile}
               alt="profile"
             />
             <div className={cssModule.Components.navDropdown}>

@@ -1,15 +1,31 @@
 import React from "react";
 import * as cssModule from "../../style/index";
+import * as Assets from "../../assets/index";
 
-const CardUser = () => {
+const CardUser = ({ dataContact, clickContact, contact }) => {
   return (
-    <div className={cssModule.Components.cardUser}>
-      <img
-        src="https://i.pinimg.com/564x/23/6a/cb/236acb35ba948106b665f8bf0854fd21.jpg"
-        alt="user"
-      />
-      <p>jinni nmixx</p>
-    </div>
+    <>
+      {dataContact.length > 0 && (
+        <>
+          {dataContact.map(item => (
+            <div
+              className={cssModule.Components.cardUser}
+              key={item.id}
+              onClick={() => {
+                clickContact(item);
+              }}
+            >
+              <img
+                src={item.profile.image || Assets.imgBlankProfile}
+                alt="profile"
+              />
+
+              <p>{item.name}</p>
+            </div>
+          ))}
+        </>
+      )}
+    </>
   );
 };
 

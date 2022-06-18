@@ -26,6 +26,7 @@ const RoutesUser = () => {
         <Route exact path="/" element={<Page.HomeCustomer />} />
         <Route exact path="product/:id" element={<Page.DetailProduct />} />
         <Route exact path="profile" element={<Page.Profile />} />
+        <Route exact path="profile/add-profile" element={<Page.AddProfile />} />
         <Route exact path="complain" element={<Page.ComplainUser />} />
         <Route exact path="cart" element={<Page.Cart />} />
       </Routes>

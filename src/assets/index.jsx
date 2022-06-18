@@ -11,6 +11,7 @@ import svgSend from "./svg/send.png";
 import svgBin from "./svg/bin.png";
 import svgFile from "./svg/file.png";
 
+import imgBlankProfile from "./images/blankProfile.png";
 import imgCoffe from "./images/Coffe.jpg";
 import imgProductOne from "./images/Rectangle.jpg";
 
@@ -27,6 +28,7 @@ export {
   svgSend,
   svgBin,
   svgFile,
+  imgBlankProfile,
   imgCoffe,
   imgProductOne,
 };

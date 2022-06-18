@@ -1,6 +1,7 @@
 import Home from "./home";
 import HomeCustomer from "./homeCustomer";
 import Profile from "./profile";
+import AddProfile from "./addProfile";
 import DetailProduct from "./detailProduct";
 import Cart from "./cart";
 import TransactionAdmin from "./transactionAdmin";
@@ -14,6 +15,7 @@ export {
   Home,
   HomeCustomer,
   Profile,
+  AddProfile,
   DetailProduct,
   Cart,
   TransactionAdmin,

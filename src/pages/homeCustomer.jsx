@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useQuery } from "react-query";
 import * as Components from "../components/index";
 import * as cssModule from "../style/index";
@@ -7,7 +7,7 @@ import * as Configs from "../config/index";
 const HomeCustomer = () => {
   let api = Configs.API;
 
-  let { data: products, refetch } = useQuery("productsCache", async () => {
+  let { data: products } = useQuery("productsCache", async () => {
     const config = {
       method: "GET",
       headers: {
@@ -15,13 +15,8 @@ const HomeCustomer = () => {
       },
     };
     const response = await api.get("/product", config);
-    console.log(response.data.data);
     return response.data.data;
   });
-
-  useEffect(() => {
-    refetch();
-  }, []);
 
   return (
     <>
