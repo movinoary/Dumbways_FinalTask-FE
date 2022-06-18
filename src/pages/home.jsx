@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useQuery } from "react-query";
 import * as Components from "../components/index";
 import * as Assets from "../assets/index";
 import * as cssModule from "../style/index";
 import * as Configs from "../config/index";
-import { useQuery } from "react-query";
 
 const Home = () => {
   const [showModalLogin, setShowModalLogin] = useState(false);

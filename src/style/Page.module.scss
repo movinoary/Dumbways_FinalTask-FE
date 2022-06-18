@@ -68,6 +68,13 @@
     .noMessage {
       width: 100%;
       height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      img {
+        width: 50%;
+        height: 50%;
+      }
     }
     .complainChatProfile {
       display: flex;
@@ -190,6 +197,7 @@
   }
 
   .detailProductDesc {
+    width: 100%;
     display: flex;
     flex-direction: column;
     padding: 50px;

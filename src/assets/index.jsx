@@ -10,6 +10,7 @@ import svgQr from "./svg/qr.png";
 import svgSend from "./svg/send.png";
 import svgBin from "./svg/bin.png";
 import svgFile from "./svg/file.png";
+import svgNoMessage from "./svg/no-message.png";
 
 import imgBlankProfile from "./images/blankProfile.png";
 import imgCoffe from "./images/Coffe.jpg";
@@ -28,6 +29,7 @@ export {
   svgSend,
   svgBin,
   svgFile,
+  svgNoMessage,
   imgBlankProfile,
   imgCoffe,
   imgProductOne,

@@ -11,7 +11,7 @@ const RoutesAdmin = () => {
         <Route exact path="/" element={<Page.TransactionAdmin />} />
         <Route exact path="list-product" element={<Page.ListProduct />} />
         <Route exact path="add-product" element={<Page.AddProduct />} />
-        <Route exact path="edit-product" element={<Page.EditProduct />} />
+        <Route exact path="edit-product/:id" element={<Page.EditProduct />} />
         <Route exact path="complain" element={<Page.ComplainAdmin />} />
       </Routes>
     </>

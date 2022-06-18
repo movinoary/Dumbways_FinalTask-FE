@@ -52,7 +52,7 @@ const Chats = ({ contact, user, messages, sendMessage }) => {
         </>
       ) : (
         <div className={cssModule.Page.noMessage}>
-          <h1>No Message</h1>
+          <img src={Assets.svgNoMessage} alt="svg" />
         </div>
       )}
     </>
