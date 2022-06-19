@@ -1,5 +1,7 @@
 import React from "react";
 import { useQuery } from "react-query";
+import { motion } from "framer-motion";
+import * as Assets from "../assets/index";
 import * as Components from "../components/index";
 import * as cssModule from "../style/index";
 import * as Configs from "../config/index";
@@ -20,7 +22,14 @@ const HomeCustomer = () => {
 
   return (
     <>
-      <section className={cssModule.Page.homeSec}>
+      <motion.section
+        className={cssModule.Page.homeSec}
+        initial="out"
+        animate="in"
+        exit="out"
+        variants={Assets.animationOne}
+        transition={Assets.transition}
+      >
         <Components.Header />
         <div className={cssModule.Page.homeSecProduct}>
           {products?.map((item, index) => (
@@ -34,7 +43,7 @@ const HomeCustomer = () => {
             />
           ))}
         </div>
-      </section>
+      </motion.section>
     </>
   );
 };

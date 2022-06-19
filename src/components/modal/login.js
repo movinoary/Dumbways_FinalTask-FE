@@ -1,6 +1,8 @@
 import React, { useContext, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useMutation } from "react-query";
+import { motion } from "framer-motion";
+import * as Assets from "../../assets/index";
 import * as cssModule from "../../style/index";
 import * as Components from "../index";
 import * as Configs from "../../config/index";
@@ -91,7 +93,13 @@ const ModalLogin = ({
           onClick={closeModal}
           ref={modalRef}
         >
-          <div className={cssModule.Components.modalRow}>
+          <motion.div
+            className={cssModule.Components.modalRow}
+            initial="out"
+            animate="in"
+            exit="out"
+            variants={Assets.animationTwo}
+          >
             <div className={cssModule.Components.modalRowTitle}>
               <h1>login</h1>
               <button onClick={closeLogin}>X</button>
@@ -125,7 +133,7 @@ const ModalLogin = ({
               Don't have an account ? Klik
               <button onClick={linkRegister}>Here</button>
             </p>
-          </div>
+          </motion.div>
         </div>
       ) : showRegister ? (
         <Components.ModalRegister

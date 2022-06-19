@@ -16,6 +16,13 @@ import imgBlankProfile from "./images/blankProfile.png";
 import imgCoffe from "./images/Coffe.jpg";
 import imgProductOne from "./images/Rectangle.jpg";
 
+import {
+  animationOne,
+  animationTwo,
+  animationThree,
+  transition,
+} from "./animations";
+
 export {
   svgBlogo,
   svgSlogo,
@@ -33,4 +40,8 @@ export {
   imgBlankProfile,
   imgCoffe,
   imgProductOne,
+  animationOne,
+  animationTwo,
+  animationThree,
+  transition,
 };

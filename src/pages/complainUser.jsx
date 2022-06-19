@@ -1,5 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { io } from "socket.io-client";
+import { motion } from "framer-motion";
+import * as Assets from "../assets/index";
 import * as Components from "../components/index";
 import * as cssModule from "../style/index";
 import * as Configs from "../config/index";
@@ -90,21 +92,34 @@ const ComplainUser = () => {
 
   return (
     <section className={cssModule.Page.complainSec}>
-      <div className={cssModule.Page.complainCard}>
+      <motion.div
+        className={cssModule.Page.complainCard}
+        animate="in"
+        exit="out"
+        variants={Assets.animationOne}
+        transition={Assets.transition}
+      >
         <Components.CardUser
           dataContact={contacts}
           clickContact={onClickContact}
           contact={contact}
         />
-      </div>
-      <div className={cssModule.Page.complainChat}>
+      </motion.div>
+      <motion.div
+        className={cssModule.Page.complainChat}
+        initial="out"
+        animate="in"
+        exit="out"
+        variants={Assets.animationOne}
+        transition={Assets.transition}
+      >
         <Components.Chats
           contact={contact}
           messages={messages}
           user={state.user}
           sendMessage={onSendMessage}
         />
-      </div>
+      </motion.div>
     </section>
   );
 };

@@ -1,10 +1,11 @@
 import React, { useContext } from "react";
 import { useQuery } from "react-query";
+import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 import * as Components from "../components/index";
 import * as cssModule from "../style/index";
 import * as Configs from "../config/index";
 import * as Assets from "../assets/index";
-import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
   const [state] = useContext(Configs.UserContext);
@@ -22,7 +23,14 @@ const Profile = () => {
   });
 
   return (
-    <section className={cssModule.Page.profileSec}>
+    <motion.section
+      className={cssModule.Page.profileSec}
+      initial="out"
+      animate="in"
+      exit="out"
+      variants={Assets.animationOne}
+      transition={Assets.transition}
+    >
       <div>
         <h1 className={cssModule.Page.profileTitle}>my profile</h1>
         <div className={cssModule.Page.profileInfo}>
@@ -57,7 +65,7 @@ const Profile = () => {
         <h1 className={cssModule.Page.title}>my transaction</h1>
         <Components.CardTransaction />
       </div>
-    </section>
+    </motion.section>
   );
 };
 

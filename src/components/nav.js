@@ -41,7 +41,7 @@ const Nav = () => {
   );
 };
 
-const NavUser = () => {
+const NavUser = ({ size }) => {
   const [state, dispatch] = useContext(Configs.UserContext);
   const navigate = useNavigate();
 
@@ -72,7 +72,9 @@ const NavUser = () => {
         </Link>
         <div className={cssModule.Components.navRight}>
           <Link to="cart" className={cssModule.Components.navLink}>
-            <p className={cssModule.Components.navDesc}>10</p>
+            {size ? (
+              <p className={cssModule.Components.navDesc}>{size}</p>
+            ) : null}
             <img
               className={cssModule.Components.imgCart}
               src={Assets.svgChart}

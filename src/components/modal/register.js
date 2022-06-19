@@ -1,5 +1,7 @@
 import React, { useRef, useState } from "react";
 import { useMutation } from "react-query";
+import { motion } from "framer-motion";
+import * as Assets from "../../assets/index";
 import * as cssModule from "../../style/index";
 import * as Configs from "../../config/index";
 
@@ -53,12 +55,15 @@ const ModalRegister = ({ setShowModalRegister, setShowModal }) => {
 
   return (
     <>
-      <div
-        className={cssModule.Components.modal}
-        onClick={closeModal}
-        ref={modalRef}
-      >
-        <div className={cssModule.Components.modalRow}>
+      <div className={cssModule.Components.modal} onClick={closeModal}>
+        <motion.div
+          className={cssModule.Components.modalRow}
+          ref={modalRef}
+          initial="out"
+          animate="in"
+          exit="out"
+          variants={Assets.animationTwo}
+        >
           <div className={cssModule.Components.modalRowTitle}>
             <h1>Register</h1>
             <button onClick={() => setShowModalRegister(prev => !prev)}>
@@ -102,7 +107,7 @@ const ModalRegister = ({ setShowModalRegister, setShowModal }) => {
             Don't have an account ? Klik
             <button onClick={setShowModal}>Here</button>
           </p>
-        </div>
+        </motion.div>
       </div>
     </>
   );
